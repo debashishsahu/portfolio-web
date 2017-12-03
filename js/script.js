@@ -168,7 +168,7 @@ $(document).ready(function(){
 	setTimeout( function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
-            strings: ["User Experience ", "Interaction "],
+            strings: ["Interaction ", "User Experience "],
             typeSpeed: 100,
             backDelay: 500,
             loop: false,
