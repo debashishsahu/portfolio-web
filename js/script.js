@@ -4,7 +4,7 @@ $(function() {
 /*-------------------------------------------
 Load Page
 ---------------------------------------------*/
-		
+
 	$('body').waitForImages({
 		finished: function() {
 				Website();
@@ -21,24 +21,24 @@ Ajax link page transitions
 	$("a.ajax-link").live("click", function(){
 		$this = $(this);
 		var link = $this.attr('href');
-		var current_url = $(location).attr('href');	
-		
-		if( link != current_url && link != '#' ) { 
+		var current_url = $(location).attr('href');
+
+		if( link != current_url && link != '#' ) {
 		$.ajax({
 			url:link,
-			processData:true, 
-			dataType:'html', 
+			processData:true,
+			dataType:'html',
 			success:function(data){
-				document.title = $(data).filter('title').text(); 
+				document.title = $(data).filter('title').text();
 				current_url = link;
         if (typeof history.pushState != 'undefined') history.pushState(data, 'Page', link);
-        
-          setTimeout(function(){						
+
+          setTimeout(function(){
           $('#preloader').delay(50).fadeIn(600);
-          $('html, body').delay(1000).animate({ scrollTop:  0  },1000);						
-					
+          $('html, body').delay(1000).animate({ scrollTop:  0  },1000);
+
 					setTimeout(function(){
-							
+
             $('#ajax-content').html($(data).filter('#ajax-content').html());
             $('#ajax-sidebar').html($(data).filter('#ajax-sidebar').html());
 
@@ -47,9 +47,9 @@ Ajax link page transitions
 								Website();
 								backLoading();
 								$('.opacity-nav').delay(50).fadeOut(600);
-              },										
+              },
               waitForAll: true
-						});								
+						});
 					},1000);
 					},0);
 			}
@@ -64,29 +64,29 @@ When you click back arrow
 ---------------------------------------------*/
 
 
-function backLoading() {  
+function backLoading() {
     $(window).on("popstate", function () {
         $('body').fadeOut('slow',function(){
             location.reload();
         });
         $('body').fadeIn();
     });
-}   
+}
 
 /*-------------------------------------------
 Load Page - next Open Site
 ---------------------------------------------*/
 
 function Website() {
-		CheckScripts();		
+		CheckScripts();
 		Masonry();
 		$('body').jKit();
 		backgroundmenu();
 		setTimeout(function(){
-			$(".preloader").fadeOut(500);							
+			$(".preloader").fadeOut(500);
 		},2000);
 		setTimeout(function(){
-			$('header').fadeIn();							
+			$('header').fadeIn();
 		},500);
 }
 
@@ -112,7 +112,7 @@ Masonry Check Script
 
 function Masonry() {
        var $container = $('.portfolio-grid');
-     
+
        $container.imagesLoaded( function(){
          $container.masonry({
            itemSelector : 'li'
@@ -136,9 +136,9 @@ function backgroundmenu() {
             } else {
                 $('header').fadeIn();
             }
-        }); 
+        });
      }
-     
+
      if($("#header-white").length) {
 
          $(window).scroll(function(){
@@ -149,10 +149,10 @@ function backgroundmenu() {
             } else {
                 $('header').css( "background", "none" );
             }
-        }); 
+        });
      }
 
-   
+
   });
 
 }
@@ -168,7 +168,7 @@ $(document).ready(function(){
 	setTimeout( function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
-            strings: ["show case ", "projects "],
+            strings: ["User Experience Designer ", "Interaction Designer "],
             typeSpeed: 100,
             backDelay: 500,
             loop: false,
@@ -202,7 +202,7 @@ function sidebarhero() {
         }
         fading.css('opacity',opacity);
     });
-  } 
+  }
 }
 
 
