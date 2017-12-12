@@ -169,9 +169,9 @@ $(document).ready(function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
             strings: ["Interaction ", "User Experience "],
-            typeSpeed: 100,
+            typeSpeed: 80,
             backDelay: 500,
-            loop: false,
+            loop: true,
             contentType: 'html', // or text
             // defaults to false for infinite loop
             loopCount: false,
