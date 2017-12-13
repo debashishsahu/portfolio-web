@@ -12,12 +12,15 @@ $("#navButton").hover(function(e){
 })
 
 $('#submitButton').click(function() {
+     var message = $("#contact-form").serialize();
         $.ajax({
-            url: 'http://formspree.io/debashish.sahu@imaginea.com',
+            url: "//formspree.io/debashish.sahu@imaginea.com", 
             method: "POST",
-            data: {message: "hello!"},
+            data: {message: message},
             dataType: "json"
         });
+        alert('Thanks for the email, we\'ll be in touch promptly.');
+        return false;
     }); 
 
 /*-------------------------------------------
