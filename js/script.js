@@ -15,10 +15,15 @@ var message = "";
 
 $("#sendMessage").on("click", function() {
     message = $("#contact-form").serialize();
+    var userName = $("#miniusername").val();
+    var userEmail = $("#miniemail").val();
+    var userDescription = $("#message").val();
+    console.log(message, userName, userEmail, userDescription);
+    
     $.ajax({
         url: "//formspree.io/debashish.sahu@imaginea.com", 
         type: "POST",
-        data: {message: message},
+        data: {name: userName, email: userEmail, description: userDescription},
         dataType: "json",
         success: function(data){
               console.log(data);
