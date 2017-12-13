@@ -13,12 +13,11 @@ $("#navButton").hover(function(e){
 
 $('#submitButton').click(function() {
         $.ajax({
-            type: 'POST',
             url: 'http://formspree.io/debashish.sahu@imaginea.com',
-            data: { username: "qwerty", 
-                    password: "email" }
+            method: "POST",
+            data: {message: "hello!"},
+            dataType: "json"
         });
-        return false;
     }); 
 
 /*-------------------------------------------
