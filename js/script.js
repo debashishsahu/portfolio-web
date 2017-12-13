@@ -10,7 +10,11 @@ $("#navButton").click(function(e){
 
 $("#navButton").hover(function(e){
   $(".custom-menu-bar").toggleClass("highlight");
-})
+});
+
+$(".menu-fullscreen li").click(function(e){
+  $(".navigationBar").removeClass("menu-bar-animate");
+});
 
 var message = "";
 

@@ -28,6 +28,7 @@
   -webkit-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -webkit-transform 0.3s 0.2s ease;
   -moz-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -moz-transform 0.3s 0.2s ease;
   transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, transform 0.3s 0.2s ease; }
+
 #menu-bar-container .custom-menu-bar:before, #menu-bar-container .custom-menu-bar:after {
   content: "";
   position: absolute;
@@ -77,6 +78,10 @@
     background-color: transparent;
     padding:0;
   outline: none;
+}
+
+.nav-item.active > a{
+  color: #ffffff;
 }
 
 
