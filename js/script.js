@@ -28,11 +28,11 @@ $("#navButton").hover(function(e){
 var message = "";
 
 $("#sendMessage").on("click", function() {
-    message = $("#contact-form").serialize();
+    var message = $("#contact-form").serialize();
     $.ajax({
         url: "//formspree.io/debashish.sahu@imaginea.com", 
         method: "POST",
-        data: message,
+        data: {message: message},
         dataType: "json",
         success: function(data){
               console.log(data);
