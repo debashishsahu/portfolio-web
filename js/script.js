@@ -11,7 +11,7 @@ $("#navButton").hover(function(e){
   $(".custom-menu-bar").toggleClass("highlight");
 })
 
-$('#contact-form').submit(function(e) {
+/*$('#contact-form').submit(function(e) {
   e.preventDefault();
         $.ajax({
             url: "//formspree.io/debashish.sahu@imaginea.com", 
@@ -23,7 +23,24 @@ $('#contact-form').submit(function(e) {
               alert('Thanks for the email, we\'ll be in touch promptly.');
             }
         });
-    }); 
+    }); */
+
+var message = "";
+
+$("#sendMessage").on("click", function() {
+    message = $("#contact-form").serialize();
+    $.ajax({
+        url: "//formspree.io/debashish.sahu@imaginea.com", 
+        method: "POST",
+        data: message,
+        dataType: "json",
+        success: function(data){
+              console.log(data);
+              alert('Thanks for the email, we\'ll be in touch promptly.');
+            }
+    });
+    return false;
+});
 
 /*-------------------------------------------
 Load Page
