@@ -3,8 +3,9 @@ $(function() {
 
 $("#navButton").click(function(e){
   e.preventDefault();
-  $(".navigationBar").toggleClass("opacity-nav");
-  $("body").toggleClass("remove-scroll");
+  $(".navigationBar").toggleClass("menu-bar-animate");
+  $(".navigationBar nav").fadeToggle("slow");
+  //$("body").toggleClass("remove-scroll");
 });
 
 $("#navButton").hover(function(e){
@@ -18,17 +19,18 @@ $("#sendMessage").on("click", function() {
     var userName = $("#miniusername").val();
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
-    console.log(message, userName, userEmail, userDescription);
-    
+
     $.ajax({
         url: "//formspree.io/debashish.sahu@imaginea.com", 
         type: "POST",
         data: {name: userName, email: userEmail, description: userDescription},
         dataType: "json",
         success: function(data){
-              console.log(data);
-              alert('Thanks for the email, we\'ll be in touch promptly.');
-            }
+          alert('Thanks for the email, we\'ll be in touch promptly.');
+          $("#miniusername").val("");
+          $("#miniemail").val("");
+          $("#message").val("");
+        }
     });
     return false;
 });

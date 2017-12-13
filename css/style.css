@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 
-.menu-fullscreen {
+/*.menu-fullscreen {
   display: none;
 }
 .opacity-nav .menu-fullscreen {
   display: block;
-}
+}*/
 
 #menu-bar-container .custom-menu-bar, #menu-bar-container .custom-menu-bar:before, #menu-bar-container .custom-menu-bar:after {
   background-color: #fff;
@@ -50,25 +50,25 @@
   bottom: -7px;
 }
 
-.opacity-nav #menu-bar-container .custom-menu-bar {
+.menu-bar-animate #menu-bar-container .custom-menu-bar {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-.opacity-nav #menu-bar-container .custom-menu-bar:before {
+.menu-bar-animate #menu-bar-container .custom-menu-bar:before {
   top: 0;
   -ms-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); 
 }
-.opacity-nav #menu-bar-container .custom-menu-bar:after {
+.menu-bar-animate #menu-bar-container .custom-menu-bar:after {
   bottom: 0;
   -ms-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg); 
 }
-.opacity-nav #menu-bar-container .custom-menu-bar:hover {
+#menu-bar-container .custom-menu-bar:hover {
   background-color: #edeff0; 
 }
 
@@ -209,6 +209,7 @@ NAVIGATION OPACITY
   top:0;
   z-index:9999;
   background:rgba(0,0,0,0.95);
+  display: none;
 }
 
 ul.menu-fullscreen{
