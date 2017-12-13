@@ -11,24 +11,10 @@ $("#navButton").hover(function(e){
   $(".custom-menu-bar").toggleClass("highlight");
 })
 
-/*$('#contact-form').submit(function(e) {
-  e.preventDefault();
-        $.ajax({
-            url: "//formspree.io/debashish.sahu@imaginea.com", 
-            method: 'POST',
-            data: $(this).serialize(),
-            dataType: "json",
-            success: function(data){
-              console.log(data);
-              alert('Thanks for the email, we\'ll be in touch promptly.');
-            }
-        });
-    }); */
-
 var message = "";
 
 $("#sendMessage").on("click", function() {
-    var message = $("#contactform").serialize();
+    message = $("#contact-form").serialize();
     $.ajax({
         url: "//formspree.io/debashish.sahu@imaginea.com", 
         type: "POST",
