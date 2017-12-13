@@ -14,6 +14,8 @@ $("#navButton").hover(function(e){
 
 $(".menu-fullscreen li").click(function(e){
   $(".navigationBar").removeClass("menu-bar-animate");
+  $(".menu-fullscreen li.active").removeClass('active');
+  $(this).addClass('active');
 });
 
 var message = "";
