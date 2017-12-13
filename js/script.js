@@ -17,10 +17,12 @@ $('#contact-form').submit(function(e) {
             url: "//formspree.io/debashish.sahu@imaginea.com", 
             method: 'POST',
             data: $(this).serialize(),
-            dataType: "json"
+            dataType: "json",
+            success: function(data){
+              console.log(data);
+              alert('Thanks for the email, we\'ll be in touch promptly.');
+            }
         });
-        alert('Thanks for the email, we\'ll be in touch promptly.');
-        return false;
     }); 
 
 /*-------------------------------------------
