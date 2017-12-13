@@ -11,12 +11,12 @@ $("#navButton").hover(function(e){
   $(".custom-menu-bar").toggleClass("highlight");
 })
 
-$('#submitButton').click(function() {
-     var message = $("#contact-form").serialize();
+$('#contact-form').submit(function(e) {
+  e.preventDefault();
         $.ajax({
             url: "//formspree.io/debashish.sahu@imaginea.com", 
             method: 'POST',
-            data: message,
+            data: $(this).serialize(),
             dataType: "json"
         });
         alert('Thanks for the email, we\'ll be in touch promptly.');
