@@ -1,6 +1,26 @@
 $(function() {
 
 
+$("#navButton").click(function(e){
+  e.preventDefault();
+  $(".navigationBar").toggleClass("opacity-nav");
+  $("body").toggleClass("remove-scroll");
+});
+
+$("#navButton").hover(function(e){
+  $(".custom-menu-bar").toggleClass("highlight");
+})
+
+$('#submitButton').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'http://formspree.io/debashish.sahu@imaginea.com',
+            data: { username: "qwerty", 
+                    password: "email" }
+        });
+        return false;
+    }); 
+
 /*-------------------------------------------
 Load Page
 ---------------------------------------------*/

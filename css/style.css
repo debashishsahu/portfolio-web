@@ -2,73 +2,28 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 
-
-nav.navbar{
-  background-color: #fff;
-  position: fixed;
-    right: 0;
-    left: 0;
-    top:0;
-  z-index:2;
+.menu-fullscreen {
+  display: none;
 }
-nav {
-  -webkit-transition: border-color 200ms ease-in-out, -webkit-transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
-  -moz-transition: border-color 200ms ease-in-out, -moz-transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
-  transition: border-color 200ms ease-in-out, transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
-  position: fixed;
-  top: 0;
-  background-color: #fff;
-  width: 100%;
-  z-index: 99;
-}
-nav > section {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-  height: 100%; }
-.brand {
-  float: left;
-  z-index: 100; 
-  position: relative
+.opacity-nav .menu-fullscreen {
+  display: block;
 }
 
-.nav-list {
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  padding-left: 0;
-  position: relative;
-  z-index: 100; 
-}
-.brand img{
-  width: 65%;
-}
-.nav-list .search {
-  -webkit-transition: opacity 200ms ease-in-out;
-  -moz-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out; 
-}
-.nav-list .search svg {
-  fill: #788188;
-  width: 18px;
-  margin-top: 4px; 
-}
-.nav-anchor {
-  -webkit-transition: color 200ms ease-in-out;
-  -moz-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out; 
-}
 #menu-bar-container .custom-menu-bar, #menu-bar-container .custom-menu-bar:before, #menu-bar-container .custom-menu-bar:after {
-  background-color: #db4459;
-  width: 25px;
-  height: 3px;
+  background-color: #fff;
+  width: 19px;
+  height: 2.8px;
   display: block;
   border-radius: 6px;
   -webkit-transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, -webkit-transform 0.3s ease;
   -moz-transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, -moz-transform 0.3s ease;
   transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, transform 0.3s ease; 
 }
+
+#menu-bar-container .highlight, #menu-bar-container .highlight:before, #menu-bar-container .highlight:after{
+  background-color: #c3c3c3!important;
+}
+
 .expanded-navigation #menu-bar-container .custom-menu-bar, .expanded-navigation #menu-bar-container .custom-menu-bar:before, .expanded-navigation #menu-bar-container .custom-menu-bar:after {
   -webkit-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -webkit-transform 0.3s 0.2s ease;
   -moz-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -moz-transform 0.3s 0.2s ease;
@@ -80,16 +35,13 @@ nav > section {
 }
 
 #menu-bar-container{
-  margin-top: 10px;
-    float: right;
-    border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 6px;
+    padding: 0px 0px 5px;
 }
 #menu-bar-container .custom-menu-bar {
   position: relative;
-  top: 0px;
-  right: 12px;
+  top: 0;
+  right: 0;
 }
 #menu-bar-container .custom-menu-bar:before {
   top: -7px;
@@ -97,26 +49,34 @@ nav > section {
 #menu-bar-container .custom-menu-bar:after {
   bottom: -7px;
 }
-.expanded-navigation #menu-bar-container .custom-menu-bar {
+
+.opacity-nav #menu-bar-container .custom-menu-bar {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-.expanded-navigation #menu-bar-container .custom-menu-bar:before {
+.opacity-nav #menu-bar-container .custom-menu-bar:before {
   top: 0;
   -ms-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); 
 }
-.expanded-navigation #menu-bar-container .custom-menu-bar:after {
+.opacity-nav #menu-bar-container .custom-menu-bar:after {
   bottom: 0;
   -ms-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg); 
 }
-.expanded-navigation #menu-bar-container .custom-menu-bar:hover {
+.opacity-nav #menu-bar-container .custom-menu-bar:hover {
   background-color: #edeff0; 
+}
+
+#nav-toggle{
+  border: none;
+    background-color: transparent;
+    padding:0;
+  outline: none;
 }
 
 
@@ -244,9 +204,8 @@ NAVIGATION OPACITY
 
 .opacity-nav{
   position:fixed;
-  display:none;
   width:100%;
-  height:100%;
+  height:100%!important;
   top:0;
   z-index:9999;
   background:rgba(0,0,0,0.95);
@@ -254,17 +213,26 @@ NAVIGATION OPACITY
 
 ul.menu-fullscreen{
   width: 100%;
-  top: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-45%);
+  /*top: 50%;
   position: absolute;
   height: 280px;
-  margin-top: -140px;
+  margin-top: -140px;*/
 }
 
-ul.menu-fullscreen li{
-  font-size:35px;
-  text-align:center;
+ul.menu-fullscreen li a{
+    font-size:35px;
   line-height:70px;
   font-weight:500;
+}
+ul.menu-fullscreen li{
+/*  font-size:35px;
+  line-height:70px;
+  font-weight:500;*/
+  text-transform: none;
+  text-align:center;
 }
 
 ul.menu-fullscreen li > a{
@@ -348,14 +316,14 @@ ul.social-icon a:hover{
 .menu-index{
   position: fixed;
   right: 5%;
-  top: 20px;
+  top: 15px;
   z-index: 99999;
   padding:20px;
   background:black;
   cursor:pointer;
 }
 
-
+/*
 .menu-index i{
   float:right;
   font-size:18px;
@@ -365,7 +333,7 @@ ul.social-icon a:hover{
 
 .menu-index i:hover{
   color:#c3c3c3;
-}
+}*/
 
 
 ul.menu-icon{
@@ -412,7 +380,8 @@ header .logo > a:hover{
 
 header li{
   text-transform:uppercase;
-  list-style-type: none; margin: 0 auto; float: left;
+  list-style-type: none; margin: 0 auto; 
+  /*float: left;*/
 }
 
 header li > a{
