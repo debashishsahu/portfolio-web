@@ -2,12 +2,141 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 
+
+nav.navbar{
+  background-color: #fff;
+  position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+  z-index:2;
+}
+nav {
+  -webkit-transition: border-color 200ms ease-in-out, -webkit-transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
+  -moz-transition: border-color 200ms ease-in-out, -moz-transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
+  transition: border-color 200ms ease-in-out, transform 0.3s cubic-bezier(0.35, -0.25, 0.35, 0);
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 99;
+}
+nav > section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%; }
+.brand {
+  float: left;
+  z-index: 100; 
+  position: relative
+}
+
+.nav-list {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
+  z-index: 100; 
+}
+.brand img{
+  width: 65%;
+}
+.nav-list .search {
+  -webkit-transition: opacity 200ms ease-in-out;
+  -moz-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out; 
+}
+.nav-list .search svg {
+  fill: #788188;
+  width: 18px;
+  margin-top: 4px; 
+}
+.nav-anchor {
+  -webkit-transition: color 200ms ease-in-out;
+  -moz-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out; 
+}
+#menu-bar-container .custom-menu-bar, #menu-bar-container .custom-menu-bar:before, #menu-bar-container .custom-menu-bar:after {
+  background-color: #db4459;
+  width: 25px;
+  height: 3px;
+  display: block;
+  border-radius: 6px;
+  -webkit-transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, -webkit-transform 0.3s ease;
+  -moz-transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, -moz-transform 0.3s ease;
+  transition: top 0.3s 0.2s ease, bottom 0.3s 0.2s ease, background-color 0.3s ease, transform 0.3s ease; 
+}
+.expanded-navigation #menu-bar-container .custom-menu-bar, .expanded-navigation #menu-bar-container .custom-menu-bar:before, .expanded-navigation #menu-bar-container .custom-menu-bar:after {
+  -webkit-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -webkit-transform 0.3s 0.2s ease;
+  -moz-transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, -moz-transform 0.3s 0.2s ease;
+  transition: top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease, transform 0.3s 0.2s ease; }
+#menu-bar-container .custom-menu-bar:before, #menu-bar-container .custom-menu-bar:after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+#menu-bar-container{
+  margin-top: 10px;
+    float: right;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px;
+}
+#menu-bar-container .custom-menu-bar {
+  position: relative;
+  top: 0px;
+  right: 12px;
+}
+#menu-bar-container .custom-menu-bar:before {
+  top: -7px;
+}
+#menu-bar-container .custom-menu-bar:after {
+  bottom: -7px;
+}
+.expanded-navigation #menu-bar-container .custom-menu-bar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.expanded-navigation #menu-bar-container .custom-menu-bar:before {
+  top: 0;
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); 
+}
+.expanded-navigation #menu-bar-container .custom-menu-bar:after {
+  bottom: 0;
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg); 
+}
+.expanded-navigation #menu-bar-container .custom-menu-bar:hover {
+  background-color: #edeff0; 
+}
+
+
+
+
+
+html{
+  height: 100%;
+}
+
 body{
   font-family: 'Raleway', sans-serif;
   font-size:14px;
   font-weight: 400;
   overflow-y:scroll;
   -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
 }
 
 ::selection {
@@ -159,8 +288,8 @@ ul.menu-fullscreen li > a:hover{
 
 #fullscreen{
   display:none;
-  position:absolute;
-  top:0;
+  /*position:absolute;
+  top:0;*/
   width:100%;
   margin:0 auto;
   height:80px;
@@ -219,7 +348,7 @@ ul.social-icon a:hover{
 .menu-index{
   position: fixed;
   right: 5%;
-  top: 30px;
+  top: 20px;
   z-index: 99999;
   padding:20px;
   background:black;
@@ -373,7 +502,7 @@ CONTENT
 
 .content .text-intro{
   width: 1140px;
-  margin-top: 150px;
+  /*margin-top: 150px;*/
   margin: 150px auto 0;
 }
 
@@ -446,7 +575,9 @@ HOME SIDEBAR
   background:#f4f4f4;
   z-index:9;
   overflow:hidden;
-  background-size:100%;
+  /*background-size:100%;*/
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .parallax{
@@ -561,7 +692,9 @@ li.grid-item{
 
 li.grid-item img{
   width:360px;
+  box-shadow: 2px 2px 10px #bebebe;
 }
+
 
 /*
 **************************
@@ -574,43 +707,44 @@ FOOTER
 footer{
   background: #f1f1f1;
   width:100%;
-  margin-top:150px;
-  height:300px;
   overflow:hidden;
-  position:relative;
   z-index:10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .footer-margin{
-  width:1140px;
+  /*width:1140px;
   margin: 30px auto;
-  line-height: 100px;
+  line-height: 100px;*/
 }
 
 #footer-left{text-align:left;}
 
 .footer-margin .copyright{
+  margin: 25px 0;
   color: #686868;
   letter-spacing: 1px;
   font-size: 12px;
   width: 100%;
   text-align:center;
-  float: left;
 }
 
 .footer-margin .social-footer{
+  margin: 20px 0;
   color: #686868;
   letter-spacing: 1px;
   font-size: 13px;
   width: 100%;
   text-align:center;
-  float: left;
 }
 
 .footer-margin .social-footer a{
   font-size:15px;
   color:black;
-  padding: 20px;
+  padding: 8px 20px;
 }
 
 .footer-margin .social-footer a:hover{
@@ -623,6 +757,13 @@ footer{
 CONTACT
 **************************
 */
+#form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .contact-one, .contact-two{
   width:30%;

@@ -188,7 +188,7 @@ Amazing Fade with scroll Sidebar
 
 function sidebarhero() {
 
-  if($("#hero").length) {
+  /*if($("#hero").length) {
     var fadeStart=100,fadeUntil=800,fading = $('#hero');
 
     $(window).bind('scroll', function(){
@@ -202,7 +202,7 @@ function sidebarhero() {
         }
         fading.css('opacity',opacity);
     });
-  }
+  }*/
 }
 
 

@@ -278,10 +278,12 @@
   }
 
   .footer-margin{
-    width:280px;
+    /*width:280px;*/
   }
   
-  .footer-margin .copyright{line-height:40px;}
+  .footer-margin .copyright{
+    /*line-height:40px;*/
+  }
 
   .content .text-intro h1, .content .text-intro p{
     width:100% !important;
@@ -355,4 +357,10 @@
     width:280px;
   }
 
+}
+
+@media (max-width: 768px){
+  #form-container {
+    flex-direction: column;
+  }
 }
