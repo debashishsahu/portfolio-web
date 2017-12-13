@@ -28,7 +28,7 @@ $("#navButton").hover(function(e){
 var message = "";
 
 $("#sendMessage").on("click", function() {
-    var message = $("#contact-form").serialize();
+    var message = $("#contactform").serialize();
     $.ajax({
         url: "//formspree.io/debashish.sahu@imaginea.com", 
         method: "POST",
