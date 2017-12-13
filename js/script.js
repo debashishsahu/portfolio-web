@@ -4,7 +4,7 @@ $(function() {
 $("#navButton").click(function(e){
   e.preventDefault();
   $(".navigationBar").toggleClass("menu-bar-animate");
-  $(".navigationBar nav").fadeToggle("slow");
+  $(".navigationBar nav").fadeToggle(500);
   //$("body").toggleClass("remove-scroll");
 });
 
@@ -16,6 +16,7 @@ $(".menu-fullscreen li").click(function(e){
   $(".navigationBar").removeClass("menu-bar-animate");
   $(".menu-fullscreen li.active").removeClass('active');
   $(this).addClass('active');
+  $(".navigationBar nav").fadeOut(500);
 });
 
 var message = "";
