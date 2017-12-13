@@ -15,8 +15,8 @@ $('#submitButton').click(function() {
      var message = $("#contact-form").serialize();
         $.ajax({
             url: "//formspree.io/debashish.sahu@imaginea.com", 
-            method: "POST",
-            data: {message: message},
+            method: 'POST',
+            data: message,
             dataType: "json"
         });
         alert('Thanks for the email, we\'ll be in touch promptly.');
