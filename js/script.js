@@ -1,3 +1,7 @@
+/*-------------------------------------------
+Float Sidebar in home page
+---------------------------------------------*/
+
 function floatingDiv() {
   var $floatingElement = $("#hero");
   if (window.innerWidth > 1023) {
@@ -27,27 +31,10 @@ $( window ).scroll(function(e) {
   floatingDiv();
 });
 
-$(function() {
 
-
-$("#navButton").click(function(e){
-  e.preventDefault();
-  $(".navigationBar").toggleClass("menu-bar-animate");
-  $(".navigationBar nav").fadeToggle(500);
-  //$("body").toggleClass("remove-scroll");
-});
-
-$("#navButton").hover(function(e){
-  $(".custom-menu-bar").toggleClass("highlight");
-});
-
-$(".menu-fullscreen li").click(function(e){
-  $(".navigationBar nav").fadeOut(500);
-  $(".navigationBar").removeClass("menu-bar-animate");
-  $(".menu-fullscreen li.active").removeClass('active');
-  $(this).addClass('active');
-});
-
+  /*-------------------------------------------
+Api call for sending email
+---------------------------------------------*/
 var message = "";
 var emailSentModal = $('#emailSentModal');
 
@@ -83,6 +70,30 @@ $("#sendMessage").on("click", function() {
     });
     return false;
 });
+
+$(function() {
+
+  /*-------------------------------------------
+Animate menu button
+---------------------------------------------*/
+  $("#navButton").click(function(e){
+    e.preventDefault();
+    $(".navigationBar").toggleClass("menu-bar-animate");
+    $(".navigationBar nav").fadeToggle(500);
+    //$("body").toggleClass("remove-scroll");
+  });
+
+  $("#navButton").hover(function(e){
+    $(".custom-menu-bar").toggleClass("highlight");
+  });
+
+  $(".menu-fullscreen li").click(function(e){
+    $(".navigationBar nav").fadeOut(500);
+    $(".navigationBar").removeClass("menu-bar-animate");
+    $(".menu-fullscreen li.active").removeClass('active');
+    $(this).addClass('active');
+  });
+
 
 /*-------------------------------------------
 Load Page
