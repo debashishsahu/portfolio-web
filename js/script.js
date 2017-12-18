@@ -1,3 +1,32 @@
+function floatingDiv() {
+  var $floatingElement = $("#hero");
+  if (window.innerWidth > 1023) {
+      $floatingElement.css('height', '100vh');
+      let
+          maxY = $('footer').offset().top - $floatingElement.outerHeight(),
+          y = $(window).scrollTop();
+
+      if ($floatingElement) {
+          if (y == 0) {
+              $floatingElement.removeClass("div-top div-middle div-bottom").addClass("div-top").css({ "top": "" });
+          } 
+          else if (y < maxY) {
+              $floatingElement.removeClass("div-top div-middle div-bottom").addClass("div-middle").css({ "top": "" });
+          } 
+          else if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $floatingElement.css('height', '100vh').css('height', '-='+$('footer').outerHeight());
+            
+            maxY = $('footer').offset().top - $floatingElement.outerHeight();
+            $floatingElement.removeClass("div-top div-middle div-bottom").addClass("div-bottom").css({ "top": maxY + "px" });
+          }
+      }
+  }
+};
+
+$( window ).scroll(function(e) {
+  floatingDiv();
+});
+
 $(function() {
 
 
@@ -13,13 +42,26 @@ $("#navButton").hover(function(e){
 });
 
 $(".menu-fullscreen li").click(function(e){
+  $(".navigationBar nav").fadeOut(500);
   $(".navigationBar").removeClass("menu-bar-animate");
   $(".menu-fullscreen li.active").removeClass('active');
   $(this).addClass('active');
-  $(".navigationBar nav").fadeOut(500);
 });
 
 var message = "";
+var emailSentModal = $('#emailSentModal');
+
+// When the user clicks on <span> (x), close the modal
+$(".closeEmailModal").click(function() {
+    emailSentModal.fadeOut();
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == emailSentModal) {
+        emailSentModal.fadeOut();
+    }
+}
 
 $("#sendMessage").on("click", function() {
     message = $("#contact-form").serialize();
@@ -33,7 +75,7 @@ $("#sendMessage").on("click", function() {
         data: {name: userName, email: userEmail, description: userDescription},
         dataType: "json",
         success: function(data){
-          alert('Thanks for the email, we\'ll be in touch promptly.');
+          emailSentModal.fadeIn();
           $("#miniusername").val("");
           $("#miniemail").val("");
           $("#message").val("");
