@@ -57,11 +57,12 @@ function submitForm() {
     var userName = $("#miniusername").val();
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
+    var bodyData = {name: userName, email: userEmail, description: userDescription};
 
     var formspreeUrl = "//formspree.io/debashish.sahu@imaginea.com";
     console.log(formspreeUrl);
 
-    $.ajax({
+    /*$.ajax({
         url: formspreeUrl, 
         type: "POST",
         data: {name: userName, email: userEmail, description: userDescription},
@@ -73,7 +74,24 @@ function submitForm() {
           $("#message").val("");
         }
     });
-    return false;
+    return false;*/
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', formspreeUrl, true);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onloadend = function (res) {
+      if (res.target.status === 200){
+        emailSentModal.fadeIn();
+          $("#miniusername").val("");
+          $("#miniemail").val("");
+          $("#message").val("");
+      } else {
+        console.log("error");
+      }
+    }
+
+    xhr.send(bodyData);
 }
 //});
 
