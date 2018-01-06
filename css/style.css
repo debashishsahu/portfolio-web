@@ -661,7 +661,9 @@ PORTFOLIO GRID
   width:100%;
   max-width:1170px;
   margin:0 auto;
-  padding-top:100px;
+  /*padding-top:100px;*/
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
 
 .prev-next a{
