@@ -56,8 +56,10 @@ $("#sendMessage").on("click", function() {
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
 
+    var formspreeUrl = "//formspree.io/debashish.sahu@imaginea.com";
+
     $.ajax({
-        url: "https://formspree.io/debashish.sahu@imaginea.com", 
+        url: formspreeUrl, 
         type: "POST",
         data: {name: userName, email: userEmail, description: userDescription},
         dataType: "json",
