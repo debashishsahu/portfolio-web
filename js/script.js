@@ -91,7 +91,7 @@ function submitForm() {
       }
     }
 
-    xhr.send(bodyData);
+    xhr.send(JSON.stringify(bodyData));
 }
 //});
 
