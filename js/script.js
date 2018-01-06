@@ -50,13 +50,16 @@ window.onclick = function(event) {
     }
 }
 
-$("#sendMessage").on("click", function() {
+//$("#sendMessage").on("click", function() {
+function submitForm() {
+  // body...
     message = $("#contact-form").serialize();
     var userName = $("#miniusername").val();
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
 
     var formspreeUrl = "//formspree.io/debashish.sahu@imaginea.com";
+    console.log(formspreeUrl);
 
     $.ajax({
         url: formspreeUrl, 
@@ -71,7 +74,8 @@ $("#sendMessage").on("click", function() {
         }
     });
     return false;
-});
+}
+//});
 
 $(function() {
 
