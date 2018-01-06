@@ -57,7 +57,7 @@ function submitForm() {
     var userName = $("#miniusername").val();
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
-    var bodyData = {name: userName, email: userEmail, description: userDescription};
+    var bodyData = "name=" + userName + "email="+ userEmail + "description=" + userDescription;
 
     var formspreeUrl = "//formspree.io/debashish.sahu@imaginea.com";
     console.log(formspreeUrl);
@@ -91,7 +91,7 @@ function submitForm() {
       }
     }
 
-    xhr.send(JSON.stringify(bodyData));
+    xhr.send(bodyData);
 }
 //});
 
