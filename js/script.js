@@ -35,32 +35,50 @@ $( window ).scroll(function(e) {
   /*-------------------------------------------
 Api call for sending email
 ---------------------------------------------*/
-var message = "";
 var emailSentModal = $('#emailSentModal');
 
 // When the user clicks on <span> (x), close the modal
-$(".closeEmailModal").click(function() {
-    emailSentModal.fadeOut();
-});
+function fadeOutModal() {
+    emailSentModal.fadeOut(); 
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == emailSentModal) {
-        emailSentModal.fadeOut();
+  var checkModal = document.getElementById("emailSentModal");
+    if (event.target == checkModal) {
+        fadeOutModal();
     }
 }
 
-//$("#sendMessage").on("click", function() {
-function submitForm() {
-  // body...
-    message = $("#contact-form").serialize();
+function sendMessage() {
+    emailSentModal = $('#emailSentModal');
+
     var userName = $("#miniusername").val();
     var userEmail = $("#miniemail").val();
     var userDescription = $("#message").val();
-    var bodyData = "name=" + userName + ', ' + "email="+ userEmail + ', ' + "description=" + userDescription;
+    $(".nameError").hide();
+    $(".emailError").hide();
+
+    if((!userName || userName.length<3) && (!userEmail || userEmail.length<5))
+    {
+      $(".nameError").show();
+      $(".emailError").show();
+      return false;
+    }
+
+    if(!userName || userName.length<3)
+    {
+      $(".nameError").show();
+      return false;
+    }
+
+    if(!userEmail || userEmail.length<5)
+    {
+      $(".emailError").show();
+      return false;
+    }
 
     var formspreeUrl = "//formspree.io/debashish.sahu@imaginea.com";
-    console.log(formspreeUrl);
 
     $.ajax({
         url: formspreeUrl, 
@@ -75,25 +93,7 @@ function submitForm() {
         }
     });
     return false;
-    /*var xhr = new XMLHttpRequest();
-    xhr.open('POST', formspreeUrl, true);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onloadend = function (res) {
-      if (res.target.status === 200){
-        emailSentModal.fadeIn();
-          $("#miniusername").val("");
-          $("#miniemail").val("");
-          $("#message").val("");
-      } else {
-        console.log("error");
-      }
-    }
-
-    xhr.send(bodyData);*/
-}
-//});
+};
 
 $(function() {
 

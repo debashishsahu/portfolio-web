@@ -846,6 +846,9 @@ CONTACT
 .contact-one p, .contact-two p, .contact-three p{
   width:100% !important;
 }
+#form-container .error{
+  display: none;
+}
 
 input{
 
@@ -865,7 +868,7 @@ input{
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-input.button-submit{
+.button-submit{
 
   width:220px;
   height:40px;
@@ -878,6 +881,9 @@ input.button-submit{
   font-weight:900;
   line-height:40px;
   font-size:13px;
+}
+.button-submit:hover{
+  cursor: pointer;
 }
 
 input:focus{

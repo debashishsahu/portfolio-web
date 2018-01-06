@@ -69,19 +69,21 @@
           <h1>Contact</h1>
           <p>To contact us please use the contact form visible. When sending files, please use the following e-mail</p>
 
-          <form id="contact-form" method="post" data-jkit="[form:validateonly=true]">
+          <form id="contact-form" method="post">
             <div id="form-container">
               <div class="contact-one">
                 <p>
                   <label for="miniusername">Username:</label><br />
-                  <input name="miniusername" id="miniusername" data-jkit="[validate:required=true;min=3;max=10;error=Please enter your username (3-10 characters)]">
+                  <input name="miniusername" id="miniusername">
+                  <span class="error nameError">Please enter your username (minimum 3 characters)</span>
                 </p>
               </div>
 
               <div class="contact-two">
                 <p>
                   <label for="miniemail">E-mail:</label><br />
-                  <input name="miniemail" id="miniemail" data-jkit="[validate:required=true;strength=50;error=Please write your email]">
+                  <input type="email" name="miniemail" id="miniemail">
+                  <span class="error emailError">Please enter your email</span>
                 </p>
               </div>
 
@@ -89,7 +91,7 @@
                 <p>
                   <label>Message:</label><br />
                   <textarea id="message" name="message"></textarea><br/><br/>
-                  <input class="button-submit" onclick="submitForm()" name="send" value="SUBMIT" /> 
+                  <button onclick="sendMessage()" class="button-submit" type="button" name="send">SUBMIT</button> 
                 </p>
               </div>
             </div>
@@ -102,7 +104,7 @@
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-header">
-        <span class="closeEmailModal">&times;</span>
+        <span class="closeEmailModal" onclick="fadeOutModal()">&times;</span>
       </div>
       <div class="modal-body">
         <span class="sent-icon"><i class="fa fa-check-circle-o"></i></span>
