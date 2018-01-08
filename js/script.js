@@ -111,6 +111,11 @@ Animate menu button
     $(".custom-menu-bar").toggleClass("highlight");
   });
 
+  $("#full .ajax-link").click(function(e){
+    $(".menu-fullscreen li.active").removeClass('active');
+    $(".menu-fullscreen li:first-child").addClass('active');
+  });
+
   $(".menu-fullscreen li").click(function(e){
     $(".navigationBar nav").fadeOut(500);
     $(".navigationBar").removeClass("menu-bar-animate");
